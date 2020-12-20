@@ -22,11 +22,6 @@ public class Client {
     private List<Pet> pets;
 
     /**
-     * Создает клиента по умолчанию
-     */
-    public Client(){}
-
-    /**
      * Конструктор клиента
      * @param name Имя нового клиента
      */
