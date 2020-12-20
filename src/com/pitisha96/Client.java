@@ -22,6 +22,11 @@ public class Client {
     private List<Pet> pets;
 
     /**
+     * Создает клиента по умолчанию
+     */
+    public Client(){}
+
+    /**
      * Конструктор клиента
      * @param name Имя нового клиента
      */
@@ -60,7 +65,7 @@ public class Client {
 
     /**
      * Получить список питомцев
-     * @return
+     * @return возвращает список питомцев
      */
     public List<Pet> getPets() {
         if(pets!=null){
