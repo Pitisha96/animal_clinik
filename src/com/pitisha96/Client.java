@@ -16,8 +16,6 @@ public class Client {
      */
     private String name;
 
-    private int id;
-
     /**
      * Список животных
      */
@@ -38,23 +36,6 @@ public class Client {
     public void setName(String name) {
         this.name = name;
     }
-
-    /**
-     * Устанавливаем индификационный номер клиента
-     * @param id новый индификационный номер клиента
-     */
-    public void setId(int id){
-        this.id=id;
-    }
-
-    /**
-     * Получаем индификационный номер клиента
-     * @return индификационный номер клиента
-     */
-    public int getId() {
-        return this.id;
-    }
-
 
     /**
      * Получить имя клиента
@@ -86,5 +67,13 @@ public class Client {
             return pets;
         }
         return Collections.emptyList();
+    }
+
+    /**
+     * Удаление питомца
+     * @param namePet имя питомца
+     */
+    public void deletePet(String namePet){
+        pets.removeIf(pet -> pet.getName().equals(namePet));
     }
 }

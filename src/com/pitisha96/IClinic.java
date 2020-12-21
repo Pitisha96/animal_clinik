@@ -30,10 +30,11 @@ public interface IClinic {
 
     /**
      * Обновление питомца
+     * @param nameClient Имя клиента
      * @param namePet Старая кличка питомца
      * @param otherNamePet Новое имя питомца
      */
-    void updatePet(String namePet,String otherNamePet);
+    void updatePet(String nameClient,String namePet,String otherNamePet);
 
     /**
      * Удаление клиента
@@ -43,9 +44,10 @@ public interface IClinic {
 
     /**
      * Удаление питомца
-     * @param namePet
+     * @param name Имя клиента
+     * @param namePet Имя питомца
      */
-    void deletePet(String namePet);
+    void deletePet(String name,String namePet);
 
     /**
      * Поиск клиента по имени
