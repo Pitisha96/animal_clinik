@@ -12,7 +12,7 @@ public interface Action {
      * @param clinic  Клиника
      * @param validator Валидатор ввода
      */
-    void execute(final ClinicUI clinic, final Validator validator);
+    void execute(final IClinic clinic, final Validator validator);
 
     /**
      * Описание действий
