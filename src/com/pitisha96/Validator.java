@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Валидатор
@@ -57,6 +58,30 @@ public class Validator implements Closeable {
         }
         return result;
     }
+
+    /**
+     * Получаем номер операции от пользователя
+     * @param message сообщение для пользователя
+     * @param set список номеров операций
+     * @return номер операции
+     * @throws UnsupportedOperationException если такого номера операции нет в списке
+     * @throws IllegalArgumentException если введено не число
+     */
+    public int getIntFromList(String message, Set<? super Integer> set)
+    throws UnsupportedOperationException,IllegalArgumentException{
+        int result;
+        System.out.print(message);
+        try{
+            result = this.scanner.nextInt();
+            if(!set.contains(result)){
+                throw new UnsupportedOperationException("такая операция не поддерживается");
+            }
+        }catch (InputMismatchException ex){
+            throw new IllegalArgumentException("Вы ввели не верное значение");
+        }
+        return result;
+    }
+
 
     /**
      * {@inheritDoc}
