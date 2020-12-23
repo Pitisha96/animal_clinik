@@ -1,4 +1,68 @@
 package com.pitisha96;
 
-public class Validator {
+import java.io.Closeable;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+/**
+ * Валидатор
+ * @author Илья Петровский
+ * @since 23.12.2020
+ */
+
+public class Validator implements Closeable {
+    private final Scanner scanner;
+
+    /**
+     * Конструктор класса валидатор
+     * @param scanner сканнер из потока ввода
+     */
+    public Validator(Scanner scanner){
+        this.scanner=scanner;
+    }
+
+    /**
+     * Читаем текстовое сообщение из консоли
+     * @param message сообщение для показа пользователю
+     * @return введенное пользователем сообщение
+     * @throws IllegalArgumentException если ввели пустое сообщение
+     */
+    public String getString(String message)
+    throws IllegalArgumentException{
+        String result;
+        System.out.print(message);
+        try{
+            result =  this.scanner.next();
+        }catch (NoSuchElementException ex){
+            throw new IllegalArgumentException("Вы ничего не ввели");
+        }
+        return result;
+    }
+
+    /**
+     * Читаем целочисленное значение от пользователя
+     * @param message сообщение для пользователя
+     * @return число из консоли
+     * @throws IllegalArgumentException если введены не верные данные
+     */
+    public int getInt(String message)
+    throws IllegalArgumentException{
+        int result;
+        System.out.print(message);
+        try{
+            result=this.scanner.nextInt();
+        }catch (InputMismatchException ex){
+            throw new IllegalArgumentException("Вы ввели не верное значение");
+        }
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void close(){
+        this.scanner.close();
+    }
 }
