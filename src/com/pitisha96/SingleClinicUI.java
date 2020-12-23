@@ -48,6 +48,6 @@ public class SingleClinicUI implements ClinicUI{
      */
     @Override
     public void show() {
-        this.actions.values().forEach(a-> System.out.print(a.intro()));
+        this.actions.values().forEach(a-> System.out.println(a.intro()));
     }
 }
