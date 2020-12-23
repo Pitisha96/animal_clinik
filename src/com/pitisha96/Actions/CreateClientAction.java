@@ -1,11 +1,16 @@
-package com.pitisha96;
+package com.pitisha96.Actions;
+
+import com.pitisha96.Action;
+import com.pitisha96.Client;
+import com.pitisha96.IClinic;
+import com.pitisha96.Validator;
 
 /**
  * Создание клиента
  * @author Илья Петровский
  * @since 23.12.2020
  */
-public class CreateClientAction implements Action{
+public class CreateClientAction implements Action {
 
     /**
      * {@inheritDoc}
