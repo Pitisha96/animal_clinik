@@ -25,13 +25,12 @@ public class SingleClinicUI implements ClinicUI{
 
     /**
      * Запрос операции и ее выполнение
-     * @param validator валидатор ввода
      */
-    public void doAction(Validator validator){
+    public void doAction(){
         this.actions.get(
-            validator.getIntFromList("Введите номер операции: ",
+            this.validator.getIntFromList("Введите номер операции: ",
                     actions.keySet())
-        ).execute(this.clinic,validator);
+        ).execute(this.clinic,this.validator);
     }
 
     /**
