@@ -33,11 +33,13 @@ public class Validator implements Closeable {
     throws IllegalArgumentException{
         String result;
         System.out.print(message);
+        this.scanner.useDelimiter("\n");
         try{
             result =  this.scanner.next();
         }catch (NoSuchElementException ex){
             throw new IllegalArgumentException("Вы ничего не ввели");
         }
+        this.scanner.useDelimiter(" ");
         return result;
     }
 
