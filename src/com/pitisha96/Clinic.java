@@ -83,7 +83,7 @@ public class Clinic implements IClinic{
     public void deleteClient(String name) {
         for(Map.Entry<Integer,Client> simple_KVclient:clients.entrySet()){
             if(simple_KVclient.getValue().getName().equals(name)){
-                clients.replace(simple_KVclient.getKey(), simple_KVclient.getValue());
+                clients.remove(simple_KVclient.getKey(), simple_KVclient.getValue());
             }
         }
     }
@@ -111,7 +111,7 @@ public class Clinic implements IClinic{
     public List<Client> searchClient(String name){
         List<Client> result=new LinkedList<>();
         for(Client simple_client:clients.values()){
-            if(simple_client.getName().equals(name)){
+            if(simple_client.getName().contains(name)){
                 result.add(simple_client);
             }
         }
@@ -129,7 +129,7 @@ public class Clinic implements IClinic{
         for(Client simple_client:clients.values()){
             List<Pet> pets= new LinkedList<>(simple_client.getPets());
             for(Pet pet: pets){
-                if(pet.getName().equals(namePet)){
+                if(pet.getName().contains(namePet)){
                     result.add(simple_client);
                 }
             }
