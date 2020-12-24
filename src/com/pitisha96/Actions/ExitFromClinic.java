@@ -33,6 +33,6 @@ public class ExitFromClinic implements Action {
      */
     @Override
     public int key() {
-        return 7;
+        return 9;
     }
 }
