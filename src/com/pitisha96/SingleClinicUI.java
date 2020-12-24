@@ -1,5 +1,7 @@
 package com.pitisha96;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -26,11 +28,11 @@ public class SingleClinicUI implements ClinicUI{
     /**
      * Запрос операции и ее выполнение
      */
-    public void doAction(){
+    public void doAction(Validator validator){
         this.actions.get(
-            this.validator.getIntFromList("Введите номер операции: ",
+            validator.getIntFromList("\nВведите номер операции: ",
                     actions.keySet())
-        ).execute(this.clinic,this.validator);
+        ).execute(this.clinic,validator);
     }
 
     /**
@@ -46,7 +48,10 @@ public class SingleClinicUI implements ClinicUI{
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void show()
+    {
+        System.out.println("-------------------------------");
         this.actions.values().forEach(a-> System.out.println(a.intro()));
+        System.out.println("-------------------------------");
     }
 }
